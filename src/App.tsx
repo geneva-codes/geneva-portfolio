@@ -432,49 +432,49 @@ export default function App() {
                 title: "AI Prompt Engineering",
                 caption: "Prompt Engineering: Structuring LLM instructions for precise sentiment and intent classification.",
                 icon: <MessageSquare className="w-6 h-6 text-brand-primary" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/prompt-engineering.png"
+                image: "/assets/architecture/prompt-engineering.png"
               },
               {
                 title: "Google Sheets Fail-Safe",
                 caption: "Data Loss Prevention: Real-time monitoring of database write operations with critical state-checking logic.",
                 icon: <Database className="w-6 h-6 text-brand-secondary" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/sheets-integration.png"
+                image: "/assets/architecture/sheets-integration.png"
               },
               {
                 title: "Global Error Handler",
                 caption: "Autonomous Monitoring: A dedicated microservice catching payload errors and triggering Slack diagnostics.",
                 icon: <AlertCircle className="w-6 h-6 text-brand-accent" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/error-handler.png"
+                image: "/assets/architecture/error-handler.png"
               },
               {
                 title: "Logic-Driven Routing",
                 caption: "Dynamic Workflows: Probabilistic AI fallback paths that handle diverse lead scenarios with high precision.",
                 icon: <Workflow className="w-6 h-6 text-brand-primary" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/logic-routing.png"
+                image: "/assets/architecture/logic-routing.png"
               },
               {
                 title: "AI Identity Verifier",
                 caption: "Sender Validation: Intent-based verification to confirm authentic engagement and halt sequences.",
                 icon: <CheckCircle2 className="w-6 h-6 text-brand-secondary" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/identity-verifier.png"
+                image: "/assets/architecture/identity-verifier.png"
               },
               {
                 title: "Lead Automation Orchestration",
                 caption: "System Architecture: Comprehensive overview of the leads ingest and nurturing autonomous engine.",
                 icon: <Layers className="w-6 h-6 text-white" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/orchestration-Lead-Automation-System-%28AI-Powered%29.png"
+                image: "/assets/architecture/orchestration-Lead-Automation-System-(AI-Powered).png"
               },
               {
                 title: "Reply Detection Engine",
                 caption: "Intelligence Engine: Dual-layered monitor triggered by Gmail IMAP to verify sender identity.",
                 icon: <MonitorCheck className="w-6 h-6 text-brand-secondary" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/orchestration-Reply-Detection-System.png"
+                image: "/assets/architecture/orchestration-Reply-Detection-System.png"
               },
               {
                 title: "System-Wide Monitor",
                 caption: "Global Observability: Centralized service monitoring node failures and timeouts across all workflows.",
                 icon: <Zap className="w-6 h-6 text-brand-accent" />,
-                image: "https://raw.githubusercontent.com/geneva-codes/geneva-portfolio/main/public/assets/architecture/orchestration-System-Wide-Error-Handler.png"
+                image: "/assets/architecture/orchestration-System-Wide-Error-Handler.png"
               }
             ].map((item, i) => (
               <motion.div
