@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Geneva Bagona - Professional Portfolio
 
-# Run and deploy your AI Studio app
+![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TypeScript%20%7C%20n8n-blue?style=for-the-badge)
 
-This contains everything you need to run your app locally.
+Welcome to the repository of my professional portfolio. This website showcases my expertise as a **Workflow Automation Developer** and **Systems Integration Specialist**.
 
-View your app in AI Studio: https://ai.studio/apps/8a71b97a-6c31-4d5c-a7ed-fcb57c551f21
+🌐 **Live Website:** [geneva-portfolio.vercel.app](https://geneva-portfolio.vercel.app/)
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🚀 About This Project
 
+This portfolio is designed to present my technical capabilities in designing enterprise-grade, AI-powered automation architectures. It serves as a visual and technical extension of my resume, providing deep dives into the logic, fallback systems, and system programming I build.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Key Highlights Showcased:
+- **Enterprise Lead Automation (AI-Powered):** Self-healing lead management engines using n8n and Webhooks.
+- **AI Prompt Engineering:** Integrating OpenAI for real-time sentiment and intent analysis.
+- **System-Wide Global Error Handling:** Centralized microservices for proactive diagnostics and zero data loss.
+- **Intelligent Reply Detection:** Dual-layered inbox monitoring using deterministic search and probabilistic AI fallback.
+- **Systems Engineering:** Showcasing foundational logic-driven applications built in C++.
+
+---
+
+## 🛠️ Technical Stack
+
+**Automation & Integration:**
+- `n8n` (Advanced Workflow Design)
+- Webhooks, REST APIs, JSON Parsing
+- Google Workspace (Sheets/Gmail) & Slack APIs
+
+**Artificial Intelligence:**
+- OpenAI API (Intent Scoring, Context Verification)
+
+**Software Development:**
+- C++ (Systems Logic, File Handling)
+- TypeScript / JavaScript
+- React / HTML / CSS
+
+---
+
+## 📬 Connect With Me
+
+I am always open to discussing workflow optimization, system architecture, and new opportunities in the automation space.
+
+- **LinkedIn:** [Geneva Bagona](https://www.linkedin.com/in/) *(Add your actual LinkedIn link here)*
+- **Email:** genevabagona16@gmail.com
+
+---
+*Developed with a focus on logic-driven efficiency and resilient system architecture.*
