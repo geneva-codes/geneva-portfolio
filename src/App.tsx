@@ -32,7 +32,13 @@ import {
   Sun,
   Menu,
   X,
-  Download
+  Download,
+  Calendar,
+  Star,
+  Bot,
+  Users,
+  TrendingUp,
+  Sparkles
 } from 'lucide-react';
 
 // --- Particle Background ---
@@ -201,7 +207,7 @@ export default function App() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'skills', 'projects', 'experience', 'education', 'contact'];
+      const sections = ['home', 'ghl-projects', 'ghl-evidence', 'skills', 'projects', 'experience', 'education', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -237,6 +243,7 @@ export default function App() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <NavLink href="#home" active={activeSection === 'home'}>Home</NavLink>
+            <NavLink href="#ghl-projects" active={activeSection === 'ghl-projects'}>GoHighLevel Systems</NavLink>
             <NavLink href="#projects" active={activeSection === 'projects'}>Workflow Automation</NavLink>
             <NavLink href="#architecture" active={activeSection === 'architecture'}>Behind the Scenes</NavLink>
             <NavLink href="#skills" active={activeSection === 'skills'}>Capabilities</NavLink>
@@ -268,6 +275,7 @@ export default function App() {
           >
             <nav className="flex flex-col gap-6 text-2xl font-bold italic">
               <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
+              <a href="#ghl-projects" onClick={() => setMobileMenuOpen(false)}>GoHighLevel Systems</a>
               <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
               <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Technical Skills</a>
               <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
@@ -298,7 +306,7 @@ export default function App() {
                 Workflow Automation Developer
               </p>
               <p className="text-brand-muted text-lg leading-relaxed max-w-xl mb-10">
-                Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span>. 
+                Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span> and <span className="text-white font-bold">GoHighLevel</span>. 
                 I bridge the gap between complex API integrations and practical business operations to drive 100% efficiency and zero data loss.
               </p>
               
@@ -358,6 +366,186 @@ export default function App() {
                 <Database className="text-brand-secondary w-8 h-8" />
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* GoHighLevel Automation Systems */}
+        <section id="ghl-projects" className="py-24 container mx-auto px-6">
+          <SectionTitle
+            subtitle="GOHIGHLEVEL + n8n + OPENAI"
+            title="GoHighLevel Automation Systems"
+            description="10 production-pattern GHL systems built end-to-end over a 10-day intensive build sprint — CRM automation, AI scoring, and a fully bidirectional custom API integration."
+          />
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              {
+                icon: <Sparkles className="w-8 h-8 text-brand-primary" />,
+                title: "AI-Powered Onboarding & Lead Nurture Ecosystem",
+                subtitle: "FLAGSHIP · BIDIRECTIONAL API",
+                desc: "A custom GHL ↔ n8n ↔ OpenAI integration: new opportunities trigger AI-driven enrichment and a personalized outreach draft, written straight back into the CRM via the API.",
+                features: ["Webhook + REST API v2 Write-back", "OpenAI-Generated Outreach Drafts", "Safe JSON Escaping for Multi-line AI Text", "Zero-Downtime Token Scope Rotation"]
+              },
+              {
+                icon: <Zap className="w-8 h-8 text-brand-secondary" />,
+                title: "AI Lead Qualification System",
+                subtitle: "AI SCORING · AUTO-ROUTING",
+                desc: "Every new lead is scored 0-100 by AI the moment it comes in, then automatically routed to a Hot Lead or Nurture path with zero manual review.",
+                features: ["GPT-4o-mini Lead Scoring", "Real-Time API Field Write-back", "Race-Condition-Safe Timing", "Hot/Nurture Auto-Tagging"]
+              },
+              {
+                icon: <Calendar className="w-8 h-8 text-brand-accent" />,
+                title: "Appointment Booking & No-Show Recovery",
+                subtitle: "FULL LIFECYCLE AUTOMATION",
+                desc: "End-to-end appointment lifecycle — booking, multi-stage reminders, and automatic no-show recovery that routes lost leads back into the sales pipeline.",
+                features: ["Automated Multi-Stage Reminders", "No-Show Detection & Recovery", "Live Timing-Logic Verification", "Pipeline Stage Auto-Routing"]
+              },
+              {
+                icon: <Star className="w-8 h-8 text-white" />,
+                title: "Reputation Management Automation",
+                subtitle: "SENTIMENT-BASED ROUTING",
+                desc: "Post-sale review requests are routed by sentiment — 4-5 star responses go public, 1-3 star feedback is intercepted internally for private resolution.",
+                features: ["Sentiment-Based If/Else Routing", "Public Reputation Protection", "Dual Pipeline & Status Triggers", "Survey-Driven Feedback Capture"]
+              }
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="glass p-8 rounded-3xl hover:bg-white/10 transition-all border-white/5 hover:border-brand-primary/30 flex flex-col group"
+              >
+                <div className="mb-6 p-4 glass rounded-2xl self-start group-hover:scale-110 transition-transform">{project.icon}</div>
+                <h4 className="text-xs font-black text-brand-primary uppercase tracking-widest mb-2">{project.subtitle}</h4>
+                <h3 className="text-xl font-bold mb-4">{project.title}</h3>
+                <p className="text-brand-muted mb-6 flex-grow text-sm">{project.desc}</p>
+                <ul className="space-y-3">
+                  {project.features.map((feature, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm font-semibold text-white/80">
+                      <CheckCircle2 className="w-4 h-4 text-brand-primary flex-shrink-0" /> {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Additional Systems - Compact Grid */}
+          <div className="glass rounded-3xl p-8 md:p-10">
+            <h4 className="text-sm font-black text-brand-primary uppercase tracking-widest mb-6 flex items-center gap-2">
+              <Layers className="w-4 h-4" /> Additional Systems Delivered
+            </h4>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { icon: <Users className="w-5 h-5 text-brand-primary" />, title: "Multi-Step Client Onboarding Automation", desc: "Auto-captures intake data and books kickoff calls with zero staff coordination." },
+                { icon: <TrendingUp className="w-5 h-5 text-brand-secondary" />, title: "Automated Sales Pipeline Manager", desc: "Stale-opportunity alerts, AI-synced naming, and a live sales reporting dashboard." },
+                { icon: <Phone className="w-5 h-5 text-brand-accent" />, title: "Missed Call Recovery Automation", desc: "Instant SMS text-back on missed calls, feeding straight into AI lead scoring." },
+                { icon: <Server className="w-5 h-5 text-white" />, title: "SaaS Client Provisioning Workflow", desc: "Centralized custom-value config for fast, template-based client account setup." },
+                { icon: <Bot className="w-5 h-5 text-brand-primary" />, title: "AI Customer Support Routing", desc: "Knowledge-base-grounded AI chat agent with human handover safeguards." },
+                { icon: <MessageSquare className="w-5 h-5 text-brand-secondary" />, title: "Sales Follow-up Engine", desc: "3-tier, score-based nurture cadence with timezone-aware internal hot-lead alerts." }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 items-start">
+                  <div className="p-3 glass rounded-xl flex-shrink-0">{item.icon}</div>
+                  <div>
+                    <h5 className="font-bold text-sm mb-1">{item.title}</h5>
+                    <p className="text-brand-muted text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* GHL Systems - Screenshot Evidence */}
+        <section id="ghl-evidence" className="py-24 container mx-auto px-6">
+          <SectionTitle
+            subtitle="LIVE SYSTEM PROOF"
+            title="GoHighLevel — Screenshot Evidence"
+            description="Real, verified screenshots from the live build — not mockups. Click any card to view full-size."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Bidirectional Integration — n8n Execution",
+                caption: "Flagship Day 9 build: the full 4-node n8n chain (Webhook → Enrichment → OpenAI → HTTP Write-back) executing successfully.",
+                icon: <Sparkles className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/ghl/day9-n8n-execution.png"
+              },
+              {
+                title: "AI Outreach Draft — Written to CRM",
+                caption: "The AI-generated outreach draft, written back into the GHL contact record via the REST API v2 — proof of the round trip.",
+                icon: <CheckCircle2 className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/ghl/day9-ai-outreach-field.png"
+              },
+              {
+                title: "AI Lead Scoring Workflow",
+                caption: "The Lead Triage workflow canvas — webhook trigger, AI scoring, and Hot/Nurture routing logic.",
+                icon: <Zap className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/ghl/day2-lead-triage-workflow.png"
+              },
+              {
+                title: "AI Lead Scoring — n8n Execution",
+                caption: "The n8n side of the Day 2 build: Webhook → OpenAI scoring → HTTP write-back, executing successfully end-to-end.",
+                icon: <Sparkles className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/ghl/day2-n8n-execution.png"
+              },
+              {
+                title: "Scored Contact Record",
+                caption: "A contact record showing the populated ai_lead_score field and the auto-applied Hot Lead tag.",
+                icon: <CheckCircle2 className="w-6 h-6 text-white" />,
+                image: "/assets/ghl/day2-contact-scored.png"
+              },
+              {
+                title: "Appointment Booking Calendar",
+                caption: "The live client-facing booking calendar — 30-minute slots, Mon–Sat, with buffer times enforced.",
+                icon: <Calendar className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/ghl/day4-booking-calendar.png"
+              },
+              {
+                title: "No-Show Recovery Workflow",
+                caption: "Automated no-show detection, re-engagement SMS, and pipeline stage routing back into active follow-up.",
+                icon: <Workflow className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/ghl/day4-noshow-workflow.png"
+              },
+              {
+                title: "Sentiment-Based Reputation Routing",
+                caption: "The Reputation Management workflow — survey trigger, sentiment If/Else split, public vs. private routing.",
+                icon: <Star className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/ghl/day7-reputation-workflow.png"
+              },
+              {
+                title: "Weekly Sales Snapshot Dashboard",
+                caption: "Live reporting dashboard — stage distribution, lead source breakdown, and opportunity status at a glance.",
+                icon: <TrendingUp className="w-6 h-6 text-white" />,
+                image: "/assets/ghl/day5-weekly-dashboard.png"
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                onClick={() => setSelectedImage({ image: item.image, title: item.title, caption: item.caption })}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass group relative overflow-hidden rounded-[32px] aspect-[4/5] cursor-zoom-in hover:border-brand-primary/40 transition-all"
+              >
+                <div className="absolute inset-0 z-0 overflow-hidden bg-black/20">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-transparent opacity-80" />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-6 z-20 flex flex-col justify-end">
+                  <div className="mb-3 w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary/20 transition-all">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                  <p className="text-brand-muted text-xs leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">{item.caption}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -602,6 +790,7 @@ export default function App() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Automation", skills: ["n8n (Advanced)", "Zapier", "Make", "Microservices"], color: "brand-primary" },
+              { title: "GoHighLevel / CRM", skills: ["Workflow Builder", "Conversation AI Agents", "Pipelines & Custom Fields", "Account Snapshots"], color: "brand-accent" },
               { title: "Integration", skills: ["REST APIs", "Webhooks", "JSON Parsing", "Slack/G-Suite"], color: "brand-secondary" },
               { title: "Artificial Intelligence", skills: ["OpenAI API", "Intent Scoring", "Sentiment Analysis", "Verification"], color: "brand-accent" },
               { title: "Engineering", skills: ["C++ Programming", "System Logic", "File Handling", "Architecture"], color: "white" }
