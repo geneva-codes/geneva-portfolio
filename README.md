@@ -1,9 +1,8 @@
 # Geneva Bagona - Professional Portfolio
-
 ![Portfolio Preview](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
-![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TypeScript%20%7C%20n8n-blue?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20TypeScript%20%7C%20n8n%20%7C%20GoHighLevel-blue?style=for-the-badge)
 
-Welcome to the repository of my professional portfolio. This website showcases my expertise as a **Workflow Automation Developer** and **Systems Integration Specialist**.
+Welcome to the repository of my professional portfolio. This website showcases my expertise as a **Workflow Automation Developer**, **GoHighLevel Automation Specialist**, and **Systems Integration Specialist**.
 
 🌐 **Live Website:** [geneva-portfolio.vercel.app](https://geneva-portfolio.vercel.app/)
 
@@ -11,9 +10,18 @@ Welcome to the repository of my professional portfolio. This website showcases m
 
 ## 🚀 About This Project
 
-This portfolio is designed to present my technical capabilities in designing enterprise-grade, AI-powered automation architectures. It serves as a visual and technical extension of my resume, providing deep dives into the logic, fallback systems, and system programming I build.
+This portfolio is designed to present my technical capabilities in designing enterprise-grade, AI-powered automation architectures across both custom-code (n8n) and CRM-native (GoHighLevel) platforms. It serves as a visual and technical extension of my resume, providing deep dives into the logic, fallback systems, and system programming I build.
 
 ### Key Highlights Showcased:
+
+**GoHighLevel Automation Systems (10-Day Build Sprint):**
+- **AI-Powered Client Onboarding & Lead Nurture Ecosystem (Flagship):** A fully bidirectional GHL ↔ n8n ↔ OpenAI integration — AI-generated outreach drafts written directly back into the CRM via REST API v2.
+- **AI Lead Qualification System:** Real-time AI lead scoring (0-100) with automatic Hot/Nurture routing.
+- **Appointment Booking & No-Show Recovery:** Full lifecycle automation with multi-stage reminders and pipeline-based recovery.
+- **Reputation Management Automation:** Sentiment-based review routing to protect public reputation.
+- **6 additional production-pattern systems:** onboarding, pipeline management, missed-call recovery, SaaS client provisioning, AI customer support routing, and score-based sales follow-up.
+
+**n8n Automation Systems:**
 - **Enterprise Lead Automation (AI-Powered):** Self-healing lead management engines using n8n and Webhooks.
 - **AI Prompt Engineering:** Integrating OpenAI for real-time sentiment and intent analysis.
 - **System-Wide Global Error Handling:** Centralized microservices for proactive diagnostics and zero data loss.
@@ -24,13 +32,18 @@ This portfolio is designed to present my technical capabilities in designing ent
 
 ## 🛠️ Technical Stack
 
+**GoHighLevel / CRM:**
+- Workflow Builder, Conversation AI Agents
+- Pipelines, Custom Fields, Custom Values
+- Account Snapshots, Calendars, REST API v2
+
 **Automation & Integration:**
 - `n8n` (Advanced Workflow Design)
 - Webhooks, REST APIs, JSON Parsing
 - Google Workspace (Sheets/Gmail) & Slack APIs
 
 **Artificial Intelligence:**
-- OpenAI API (Intent Scoring, Context Verification)
+- OpenAI API (Intent Scoring, Context Verification, Content Generation)
 
 **Software Development:**
 - C++ (Systems Logic, File Handling)
@@ -47,4 +60,5 @@ I am always open to discussing workflow optimization, system architecture, and n
 - **Email:** genevabagona16@gmail.com
 
 ---
+
 *Developed with a focus on logic-driven efficiency and resilient system architecture.*
