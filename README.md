@@ -56,7 +56,7 @@ This portfolio is designed to present my technical capabilities in designing ent
 
 I am always open to discussing workflow optimization, system architecture, and new opportunities in the automation space.
 
-- **LinkedIn:** [Geneva Bagona](https://www.linkedin.com/in/) *(Add your actual LinkedIn link here)*
+- **LinkedIn:** https://www.linkedin.com/in/geneva-bagona-16042019g/
 - **Email:** genevabagona16@gmail.com
 
 ---
