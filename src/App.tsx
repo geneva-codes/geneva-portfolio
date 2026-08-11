@@ -307,7 +307,7 @@ export default function App() {
               </p>
               <p className="text-brand-muted text-lg leading-relaxed max-w-xl mb-10">
                 Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span> and <span className="text-white font-bold">GoHighLevel</span>. 
-                I bridge the gap between complex API integrations and practical business operations to drive 100% efficiency and zero data loss.
+                I bridge the gap between complex API integrations and practical business operations by designing reliable, logic-driven automation systems.
               </p>
               
               <div className="flex flex-wrap gap-4">
@@ -348,12 +348,12 @@ export default function App() {
                 </div>
                 <div className="mt-8 flex gap-4">
                   <div className="flex-1 glass p-4 rounded-2xl">
-                    <p className="text-[10px] uppercase font-black text-brand-muted mb-1">Success Rate</p>
-                    <p className="text-2xl font-black">99.9%</p>
+                    <p className="text-[10px] uppercase font-black text-brand-muted mb-1">Reliability-Focused Architecture</p>
+                    <p className="text-2xl font-black">Designed</p>
                   </div>
                   <div className="flex-1 glass p-4 rounded-2xl bg-brand-primary/10">
-                    <p className="text-[10px] uppercase font-black text-brand-primary mb-1">Data Integrity</p>
-                    <p className="text-2xl font-black">100%</p>
+                    <p className="text-[10px] uppercase font-black text-brand-primary mb-1">Data Integrity Controls</p>
+                    <p className="text-2xl font-black">Validated</p>
                   </div>
                 </div>
               </div>
@@ -555,7 +555,7 @@ export default function App() {
             <SectionTitle 
               subtitle="n8n ARCHITECTURE" 
               title="Enterprise Automation Projects" 
-              description="Designing enterprise-grade microservices and resilient self-healing engines to optimize business workflows."
+              description="Designing resilient workflow systems with AI-assisted routing, validation, state checks, and structured error handling."
             />
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -564,7 +564,7 @@ export default function App() {
                   icon: <Zap className="w-8 h-8 text-brand-primary" />,
                   title: "Enterprise Lead Automation System",
                   subtitle: "AI-Powered CRM Engine",
-                  desc: "Architected a fully autonomous, self-healing engine that ingests leads via Webhooks and performs real-time AI sentiment analysis.",
+                  desc: "Architected an AI-assisted lead automation engine that ingests leads via Webhooks and performs real-time AI intent analysis.",
                   features: ["AI Intent Scoring", "Dynamic CRM Routing", "Fallback Degradation Pathways", "State-Checking Logic"]
                 },
                 {
@@ -579,7 +579,7 @@ export default function App() {
                   title: "Global Error Handling Microservice",
                   subtitle: "System-Wide Monitoring",
                   desc: "Centralized monitoring service that captures node failures, timeouts, and payload errors across all active workflows.",
-                  features: ["Proactive Diagnostics", "Real-time Slack Alerts", "Payload Error Capturing", "Maximum System Uptime"]
+                  features: ["Proactive Diagnostics", "Real-time Slack Alerts", "Payload Error Capturing", "Centralized Error Monitoring"]
                 }
               ].map((project, i) => (
                 <motion.div 
@@ -611,7 +611,7 @@ export default function App() {
           <SectionTitle 
             subtitle="BEHIND THE SCENES" 
             title="Technical Architecture" 
-            description="A detailed look into the logic-driven engines and AI integrations that power high-scale enterprise automation. Click any card to expand screenshot details."
+            description="A detailed look into the workflow logic, AI integrations, validation controls, and error-handling patterns behind my automation systems. Click any card to expand screenshot details."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -624,19 +624,19 @@ export default function App() {
               },
               {
                 title: "Google Sheets Fail-Safe",
-                caption: "Data Loss Prevention: Real-time monitoring of database write operations with critical state-checking logic.",
+                caption: "Data Integrity Controls: Real-time monitoring of database write operations with critical state-checking logic.",
                 icon: <Database className="w-6 h-6 text-brand-secondary" />,
                 image: "/assets/architecture/sheets-integration.png"
               },
               {
                 title: "Global Error Handler",
-                caption: "Autonomous Monitoring: A dedicated microservice catching payload errors and triggering Slack diagnostics.",
+                caption: "Centralized Error Monitoring: A dedicated handler catching payload errors and triggering Slack diagnostics.",
                 icon: <AlertCircle className="w-6 h-6 text-brand-accent" />,
                 image: "/assets/architecture/error-handler.png"
               },
               {
                 title: "Logic-Driven Routing",
-                caption: "Dynamic Workflows: Probabilistic AI fallback paths that handle diverse lead scenarios with high precision.",
+                caption: "Dynamic Workflows: AI-assisted fallback paths that handle diverse lead scenarios while preserving deterministic routing logic.",
                 icon: <Workflow className="w-6 h-6 text-brand-primary" />,
                 image: "/assets/architecture/logic-routing.png"
               },
@@ -648,7 +648,7 @@ export default function App() {
               },
               {
                 title: "Lead Automation Orchestration",
-                caption: "System Architecture: Comprehensive overview of the leads ingest and nurturing autonomous engine.",
+                caption: "System Architecture: Comprehensive overview of the lead-ingestion and nurturing automation engine.",
                 icon: <Layers className="w-6 h-6 text-white" />,
                 image: "/assets/architecture/orchestration-Lead-Automation-System-(AI-Powered).png"
               },
@@ -660,7 +660,7 @@ export default function App() {
               },
               {
                 title: "System-Wide Monitor",
-                caption: "Global Observability: Centralized service monitoring node failures and timeouts across all workflows.",
+                caption: "Global Observability: Centralized service monitoring for node failures and timeouts across workflows.",
                 icon: <Zap className="w-6 h-6 text-brand-accent" />,
                 image: "/assets/architecture/orchestration-System-Wide-Error-Handler.png"
               }
@@ -705,18 +705,18 @@ export default function App() {
           <div className="mt-16 glass rounded-3xl p-8 border-brand-accent/20">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
-                <h4 className="text-2xl font-black mb-4 italic">LOGIC-DRIVEN EFFICIENCY VERIFIED</h4>
+                <h4 className="text-2xl font-black mb-4 italic">RELIABILITY-FOCUSED AUTOMATION</h4>
                 <p className="text-brand-muted leading-relaxed">
-                  These screenshots represent active nodes in my enterprise-grade workflows. Each component is architected for maximum system uptime, proactive diagnostics, and zero data loss. By combining deterministic logic with probabilistic AI analysis, I build systems that are both resilient and intelligent.
+                  These screenshots represent active components from my automation builds. The systems combine deterministic workflow logic with AI-assisted analysis, data validation, state checks, and centralized error monitoring to create workflows that are easier to verify, troubleshoot, and maintain.
                 </p>
               </div>
               <div className="flex gap-4">
                  <div className="text-center px-6 py-4 glass rounded-[20px]">
-                    <div className="text-brand-primary font-black text-3xl">100%</div>
-                    <div className="text-[10px] uppercase font-black text-brand-muted">Data Accuracy</div>
+                    <div className="text-brand-primary font-black text-3xl">Validated</div>
+                    <div className="text-[10px] uppercase font-black text-brand-muted">Integrity Controls</div>
                  </div>
                  <div className="text-center px-6 py-4 glass rounded-[20px]">
-                    <div className="text-brand-secondary font-black text-3xl">24/7</div>
+                    <div className="text-brand-secondary font-black text-3xl">LIVE</div>
                     <div className="text-[10px] uppercase font-black text-brand-muted">Monitoring</div>
                  </div>
               </div>
