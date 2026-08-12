@@ -207,7 +207,7 @@ export default function App() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'ghl-projects', 'ghl-evidence', 'skills', 'projects', 'experience', 'education', 'contact'];
+      const sections = ['home', 'ghl-projects', 'ghl-evidence', 'voice-ai', 'skills', 'projects', 'experience', 'education', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -244,6 +244,7 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-8">
             <NavLink href="#home" active={activeSection === 'home'}>Home</NavLink>
             <NavLink href="#ghl-projects" active={activeSection === 'ghl-projects'}>GoHighLevel Systems</NavLink>
+            <NavLink href="#voice-ai" active={activeSection === 'voice-ai'}>Voice AI Agents</NavLink>
             <NavLink href="#projects" active={activeSection === 'projects'}>Workflow Automation</NavLink>
             <NavLink href="#architecture" active={activeSection === 'architecture'}>Behind the Scenes</NavLink>
             <NavLink href="#skills" active={activeSection === 'skills'}>Capabilities</NavLink>
@@ -276,6 +277,7 @@ export default function App() {
             <nav className="flex flex-col gap-6 text-2xl font-bold italic">
               <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
               <a href="#ghl-projects" onClick={() => setMobileMenuOpen(false)}>GoHighLevel Systems</a>
+              <a href="#voice-ai" onClick={() => setMobileMenuOpen(false)}>Voice AI Agents</a>
               <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
               <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Technical Skills</a>
               <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
@@ -303,7 +305,7 @@ export default function App() {
                 <span className="gradient-text">BAGONA</span>
               </h1>
               <p className="text-2xl md:text-3xl font-bold mb-8 text-white italic">
-                Workflow Automation Developer
+                AI Automation & Systems Integration Specialist
               </p>
               <p className="text-brand-muted text-lg leading-relaxed max-w-xl mb-10">
                 Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span> and <span className="text-white font-bold">GoHighLevel</span>. 
@@ -519,6 +521,274 @@ export default function App() {
                 caption: "Live reporting dashboard — stage distribution, lead source breakdown, and opportunity status at a glance.",
                 icon: <TrendingUp className="w-6 h-6 text-white" />,
                 image: "/assets/ghl/day5-weekly-dashboard.png"
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                onClick={() => setSelectedImage({ image: item.image, title: item.title, caption: item.caption })}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass group relative overflow-hidden rounded-[32px] aspect-[4/5] cursor-zoom-in hover:border-brand-primary/40 transition-all"
+              >
+                <div className="absolute inset-0 z-0 overflow-hidden bg-black/20">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-transparent opacity-80" />
+                </div>
+                <div className="absolute inset-x-0 bottom-0 p-6 z-20 flex flex-col justify-end">
+                  <div className="mb-3 w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-primary/20 transition-all">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                  <p className="text-brand-muted text-xs leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all">{item.caption}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Voice AI Agents — Cross-Platform Build */}
+        <section id="voice-ai" className="py-24 container mx-auto px-6">
+          <SectionTitle
+            subtitle="ELEVENLABS + GOHIGHLEVEL NATIVE"
+            title="Voice AI Agents — Built on Two Platforms"
+            description="Same persona, same clinic, same appointment-coordinator role — built and tested natively on both platforms to produce a real, evidence-based comparison instead of a documentation-only one."
+          />
+
+          {/* Two-platform comparison cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="glass p-8 rounded-3xl border-white/5 hover:border-brand-primary/30 transition-all flex flex-col"
+            >
+              <div className="mb-6 p-4 glass rounded-2xl self-start">
+                <Bot className="w-8 h-8 text-brand-primary" />
+              </div>
+              <h4 className="text-xs font-black text-brand-primary uppercase tracking-widest mb-2">ELEVENLABS · EXTERNAL ORCHESTRATION</h4>
+              <h3 className="text-2xl font-bold mb-4">"Maya" — ElevenLabs Voice Agent</h3>
+              <p className="text-brand-muted mb-6 flex-grow">
+                A conversational voice agent with a freeform system prompt, RAG-backed Knowledge Base, and a custom Server Tool that hands reschedule requests off to an n8n webhook for logging.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Freeform prompt + dynamic variables ({{patient_name}}, {{appointment_date}})",
+                  "Custom log_reschedule_request Server Tool → n8n webhook",
+                  "Knowledge Base with clinic policies & FAQ",
+                  "Outbound calling architecture validated (blocked only on phone number purchase)"
+                ].map((f, j) => (
+                  <li key={j} className="flex items-center gap-2 text-sm font-semibold text-white/80">
+                    <CheckCircle2 className="w-4 h-4 text-brand-primary flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="glass p-8 rounded-3xl border-white/5 hover:border-brand-secondary/30 transition-all flex flex-col"
+            >
+              <div className="mb-6 p-4 glass rounded-2xl self-start">
+                <Phone className="w-8 h-8 text-brand-secondary" />
+              </div>
+              <h4 className="text-xs font-black text-brand-secondary uppercase tracking-widest mb-2">GOHIGHLEVEL · NATIVE PLATFORM ACTIONS</h4>
+              <h3 className="text-2xl font-bold mb-4">"Maya" — GHL Native Voice Agent</h3>
+              <p className="text-brand-muted mb-6 flex-grow">
+                The same persona rebuilt inside GHL's structured prompt schema, using the native Appointment Booking action to read and write directly to a real GHL calendar — no external webhook layer required.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Structured prompt schema with GHL's fixed section headers",
+                  "Native Appointment Booking action — real calendar read/write",
+                  "Reused & extended existing Knowledge Base (added no-show policy)",
+                  "Live-tested: booking, reschedule, and cancellation — all verified against real records"
+                ].map((f, j) => (
+                  <li key={j} className="flex items-center gap-2 text-sm font-semibold text-white/80">
+                    <CheckCircle2 className="w-4 h-4 text-brand-secondary flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* What building both taught me */}
+          <div className="glass rounded-3xl p-8 md:p-10 mb-12">
+            <h4 className="text-sm font-black text-brand-accent uppercase tracking-widest mb-6 flex items-center gap-2">
+              <AlertCircle className="w-4 h-4" /> What Building Both Platforms Surfaced
+            </h4>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: <AlertCircle className="w-5 h-5 text-red-400" />,
+                  title: "Found & fixed a real security gap",
+                  desc: "The GHL agent disclosed real appointment details to an unverified caller. Rewrote the identity-confirmation rule to require a name-check before sharing any detail — then verified the fix with an adversarial retest."
+                },
+                {
+                  icon: <CheckCircle2 className="w-5 h-5 text-brand-primary" />,
+                  title: "Closed a documented architecture gap",
+                  desc: "The ElevenLabs build only ever logged a simulated reschedule. The GHL native Appointment Booking action closed that gap for real — a live test call wrote an actual appointment to the calendar and triggered a real confirmation email."
+                },
+                {
+                  icon: <Server className="w-5 h-5 text-brand-secondary" />,
+                  title: "Traced an unrelated production bug",
+                  desc: "A live confirmation email had literal unfilled placeholders ([Clinic Address], [Phone Number]). Traced it to hardcoded text in a workflow's Email action and fixed it with reusable GHL Custom Values instead of patching the symptom."
+                },
+                {
+                  icon: <MonitorCheck className="w-5 h-5 text-white" />,
+                  title: "Verified outcomes, not the AI's claims",
+                  desc: "Every action tested — booking, reschedule, cancellation — was cross-checked against the actual GHL Appointments record, not just the agent's spoken confirmation that it was 'done.'"
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4 items-start">
+                  <div className="p-3 glass rounded-xl flex-shrink-0">{item.icon}</div>
+                  <div>
+                    <h5 className="font-bold text-sm mb-1">{item.title}</h5>
+                    <p className="text-brand-muted text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Screenshot Evidence */}
+          <div className="mb-4 text-center">
+            <span className="text-brand-secondary font-bold uppercase tracking-wider text-xs">LIVE SYSTEM PROOF</span>
+            <h3 className="text-2xl font-bold mt-2">Voice AI — Screenshot Evidence</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+            {[
+              {
+                title: "ElevenLabs — Agent System Prompt",
+                caption: "Maya's full system prompt: role, goals, reschedule handling rules, and the instruction to call the log_reschedule_request tool.",
+                icon: <Terminal className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/eleven-system-prompt.png"
+              },
+              {
+                title: "ElevenLabs — Dynamic Variables",
+                caption: "patient_name, appointment_date, and appointment_time wired as dynamic variables, populated per-call from real contact data.",
+                icon: <Zap className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/eleven-dynamic-variables.png"
+              },
+              {
+                title: "ElevenLabs — Knowledge Base",
+                caption: "The RAG-backed Knowledge Base document: clinic hours, rescheduling policy, no-show policy, and cancellation rules Maya grounds her answers in.",
+                icon: <Layers className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/eleven-knowledge-base.png"
+              },
+              {
+                title: "ElevenLabs — Reschedule Tool Config",
+                caption: "The log_reschedule_request Server Tool: structured parameters (patient_name, new_date, new_time, reason) sent to the n8n webhook.",
+                icon: <Bot className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/eleven-reschedule-tool.png"
+              },
+              {
+                title: "ElevenLabs — Live Reschedule Call",
+                caption: "A real conversation transcript: patient requests a reschedule, agent confirms the new date/time, and the log_reschedule_request tool fires successfully — visible right in the transcript.",
+                icon: <MessageSquare className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/eleven-reschedule-conversation.png"
+              },
+              {
+                title: "ElevenLabs — Call Analytics",
+                caption: "Per-call observability: AI-generated summary, LLM/TTS latency breakdown per turn, and production environment metadata — not just a transcript, a monitored system.",
+                icon: <MonitorCheck className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/eleven-conversation-analytics.png"
+              },
+              {
+                title: "n8n — Outbound Call Architecture",
+                caption: "The annotated Voice Outbound Call Trigger workflow: no-show detected → call details formatted → request sent to ElevenLabs' voice API.",
+                icon: <Workflow className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/eleven-n8n-outbound-architecture.png"
+              },
+              {
+                title: "n8n — The Architecture Gap, Documented",
+                caption: "The Voice Reschedule Handler workflow, annotated with its own limitation: confirms in-conversation only, doesn't yet write to the GHL calendar — the exact gap the GHL native build closed.",
+                icon: <AlertCircle className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/eleven-n8n-reschedule-gap.png"
+              },
+              {
+                title: "GHL Native — Structured Prompt",
+                caption: "Maya rebuilt inside GHL's fixed-schema prompt editor: Agent Role, Handling Rules, and a Structured Call Flow Script.",
+                icon: <Terminal className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/ghl-structured-prompt.png"
+              },
+              {
+                title: "Knowledge Base — Reused & Extended",
+                caption: "The existing Loopline Clinic Knowledge Base attached to the native agent, with usage instructions for when to pull from it.",
+                icon: <Layers className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/ghl-knowledge-base-attached.png"
+              },
+              {
+                title: "Knowledge Base — The Actual Content",
+                caption: "The 9 FAQ entries Maya grounds her answers in — clinic hours, pricing, no-show policy, insurance, walk-ins — shared across the lead-qualification bot and the voice agent.",
+                icon: <MessageSquare className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/ghl-knowledge-base-faq-content.png"
+              },
+              {
+                title: "Agent Behavior — Tuned, Not Default",
+                caption: "Response speed, interruption sensitivity, and LLM temperature tuned by hand — including Taglish hold-phrases ('wait lang') for natural pauses.",
+                icon: <Zap className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/ghl-agent-behavior-tuning.png"
+              },
+              {
+                title: "GHL Native — Appointment Booking Action",
+                caption: "The native Appointment Booking action, bound to the real 'Clinic Appointment Booking' calendar — no external webhook needed.",
+                icon: <Calendar className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/ghl-appointment-booking-config.png"
+              },
+              {
+                title: "The Live Booking Call",
+                caption: "A full end-to-end test call: identity check, availability lookup, slot selection, phone/email capture and confirmation — the exact call that produced the calendar record and email below.",
+                icon: <Bot className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/ghl-live-booking-call.png"
+              },
+              {
+                title: "Real Calendar Write-Back",
+                caption: "The GHL Appointments detail view showing that same appointment booked live by the voice agent — Source: 'Voice ai.'",
+                icon: <CheckCircle2 className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/ghl-real-appointment-booked.png"
+              },
+              {
+                title: "The Bug, Before the Fix",
+                caption: "The confirmation email as first built — literal unfilled placeholders ([Clinic Address], [Phone Number]) going out to real patients.",
+                icon: <AlertCircle className="w-6 h-6 text-red-400" />,
+                image: "/assets/voice-ai/ghl-bug-before-fix.png"
+              },
+              {
+                title: "The Fix — Merge Tags In the Template",
+                caption: "The Email action editor showing {{custom_values.clinic_address}} and {{custom_values.clinic_phone}} inserted directly into the message body.",
+                icon: <Server className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/ghl-email-fix-template.png"
+              },
+              {
+                title: "Custom Values — The Fix",
+                caption: "clinic_address and clinic_phone created as reusable GHL Custom Values, replacing hardcoded placeholder text in the email template.",
+                icon: <Server className="w-6 h-6 text-brand-accent" />,
+                image: "/assets/voice-ai/ghl-custom-values.png"
+              },
+              {
+                title: "Confirmation Email — Fixed",
+                caption: "The same email after the Custom Values fix — real address and phone number, no placeholder text.",
+                icon: <CheckCircle2 className="w-6 h-6 text-white" />,
+                image: "/assets/voice-ai/ghl-confirmation-email-fixed.png"
+              },
+              {
+                title: "Identity Verification Fix",
+                caption: "The rewritten Structured Call Flow Script — the agent now opens every call with a name-check before sharing any appointment detail.",
+                icon: <AlertCircle className="w-6 h-6 text-brand-primary" />,
+                image: "/assets/voice-ai/ghl-identity-verification-fix.png"
+              },
+              {
+                title: "Outbound Calling — Compliance Gate",
+                caption: "A native outbound call attempt, blocked by GHL's own KYC/disclosure compliance gate — the platform's equivalent honesty check to ElevenLabs' phone-number requirement.",
+                icon: <AlertCircle className="w-6 h-6 text-brand-secondary" />,
+                image: "/assets/voice-ai/ghl-outbound-compliance-gate.png"
               }
             ].map((item, i) => (
               <motion.div
