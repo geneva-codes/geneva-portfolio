@@ -30,10 +30,40 @@ This portfolio is designed to present my technical capabilities in designing ent
 
 ---
 
+## 🎙️ Voice AI Systems — Loopline Clinic
+
+Built **two separate Voice AI implementations** for appointment reminders and no-show recovery: one using **ElevenLabs ElevenAgents** and one using **GoHighLevel Native Voice AI**.
+
+### ElevenLabs ElevenAgents
+- Conversational Maya appointment coordinator
+- ElevenAgents + Gemini 2.5 Flash
+- Knowledge Base / RAG
+- Dynamic appointment variables
+- Rescheduling via Server Tool → n8n webhook
+- ElevenLabs Outbound Call API
+- API security and centralized error handling
+
+**Architecture:** `GoHighLevel → n8n → ElevenLabs ElevenAgents → n8n`
+
+### GoHighLevel Native Voice AI
+- Native GHL Voice AI Custom Agent — Maya
+- GPT-4.1
+- GHL Knowledge Base
+- Native Appointment Booking, Reschedule & Cancel actions
+- Direct GHL Calendar integration
+- Identity confirmation and privacy controls
+- Outbound Voice AI configuration and testing
+
+**Architecture:** `GHL Voice AI → GHL Native Actions → GHL Calendar`
+
+These two builds demonstrate hands-on experience with both **external Voice AI orchestration** and **native GoHighLevel Voice AI automation**.
+
+---
+
 ## 🛠️ Technical Stack
 
 **GoHighLevel / CRM:**
-- Workflow Builder, Conversation AI Agents
+- Workflow Builder, Conversation AI Agents, Voice AI
 - Pipelines, Custom Fields, Custom Values
 - Account Snapshots, Calendars, REST API v2
 
@@ -44,6 +74,8 @@ This portfolio is designed to present my technical capabilities in designing ent
 
 **Artificial Intelligence:**
 - OpenAI API (Intent Scoring, Context Verification, Content Generation)
+- Gemini 2.5 Flash (ElevenLabs ElevenAgents)
+- GPT-4.1 (GoHighLevel Native Voice AI)
 
 **Software Development:**
 - C++ (Systems Logic, File Handling)
