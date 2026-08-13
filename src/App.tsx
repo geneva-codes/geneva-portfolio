@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode, type WheelEvent, type PointerEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Terminal, 
@@ -38,7 +38,10 @@ import {
   Bot,
   Users,
   TrendingUp,
-  Sparkles
+  Sparkles,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw
 } from 'lucide-react';
 
 // --- Particle Background ---
@@ -114,6 +117,10 @@ const ParticleBackground = () => {
 };
 
 // --- Modal Component ---
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+const ZOOM_STEP = 0.5;
+
 const ImageModal = ({ isOpen, onClose, image, title, caption }: { 
   isOpen: boolean; 
   onClose: () => void; 
@@ -121,11 +128,82 @@ const ImageModal = ({ isOpen, onClose, image, title, caption }: {
   title: string;
   caption: string;
 }) => {
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+  const lastPointer = useRef({ x: 0, y: 0 });
+  const imgWrapRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
+
+  // Reset zoom/pan whenever a new image is opened
+  useEffect(() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }, [image, isOpen]);
+
+  const clampZoom = (value: number) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, value));
+
+  const zoomIn = () => setZoom((z) => {
+    const next = clampZoom(z + ZOOM_STEP);
+    if (next === MIN_ZOOM) setPan({ x: 0, y: 0 });
+    return next;
+  });
+
+  const zoomOut = () => setZoom((z) => {
+    const next = clampZoom(z - ZOOM_STEP);
+    if (next === MIN_ZOOM) setPan({ x: 0, y: 0 });
+    return next;
+  });
+
+  const resetZoom = () => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  };
+
+  const handleWheel = (e: WheelEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const delta = e.deltaY > 0 ? -ZOOM_STEP / 2 : ZOOM_STEP / 2;
+    setZoom((z) => {
+      const next = clampZoom(z + delta);
+      if (next === MIN_ZOOM) setPan({ x: 0, y: 0 });
+      return next;
+    });
+  };
+
+  const handleDoubleClick = () => {
+    setZoom((z) => {
+      if (z > MIN_ZOOM) {
+        setPan({ x: 0, y: 0 });
+        return MIN_ZOOM;
+      }
+      return clampZoom(MIN_ZOOM + ZOOM_STEP * 2);
+    });
+  };
+
+  const handlePointerDown = (e: PointerEvent) => {
+    if (zoom <= MIN_ZOOM) return;
+    isDragging.current = true;
+    lastPointer.current = { x: e.clientX, y: e.clientY };
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: PointerEvent) => {
+    if (!isDragging.current || zoom <= MIN_ZOOM) return;
+    const dx = e.clientX - lastPointer.current.x;
+    const dy = e.clientY - lastPointer.current.y;
+    lastPointer.current = { x: e.clientX, y: e.clientY };
+    setPan((p) => ({ x: p.x + dx, y: p.y + dy }));
+  };
+
+  const handlePointerUp = () => {
+    isDragging.current = false;
+  };
 
   return (
     <AnimatePresence>
@@ -151,12 +229,56 @@ const ImageModal = ({ isOpen, onClose, image, title, caption }: {
               <X className="w-6 h-6" />
             </button>
 
+            {/* Zoom Controls */}
+            <div className="absolute top-6 left-6 z-10 flex items-center gap-2 glass rounded-full p-1.5">
+              <button
+                onClick={zoomOut}
+                disabled={zoom <= MIN_ZOOM}
+                className="p-2.5 rounded-full hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Zoom out"
+              >
+                <ZoomOut className="w-5 h-5" />
+              </button>
+              <span className="text-xs font-bold uppercase tracking-widest w-12 text-center select-none">
+                {Math.round(zoom * 100)}%
+              </span>
+              <button
+                onClick={zoomIn}
+                disabled={zoom >= MAX_ZOOM}
+                className="p-2.5 rounded-full hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Zoom in"
+              >
+                <ZoomIn className="w-5 h-5" />
+              </button>
+              {zoom > MIN_ZOOM && (
+                <button
+                  onClick={resetZoom}
+                  className="p-2.5 rounded-full hover:bg-white/10 transition-colors"
+                  aria-label="Reset zoom"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
             <div className="flex flex-col lg:flex-row h-full">
-              <div className="lg:w-3/4 bg-black/40 flex items-center justify-center p-4">
+              <div 
+                ref={imgWrapRef}
+                onWheel={handleWheel}
+                onDoubleClick={handleDoubleClick}
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onPointerLeave={handlePointerUp}
+                className={`lg:w-3/4 bg-black/40 flex items-center justify-center p-4 overflow-hidden select-none ${zoom > MIN_ZOOM ? (isDragging.current ? 'cursor-grabbing' : 'cursor-grab') : 'cursor-zoom-in'}`}
+                style={{ touchAction: 'none' }}
+              >
                 <img 
                   src={image} 
                   alt={title} 
-                  className="max-h-[80vh] w-full object-contain drop-shadow-2xl" 
+                  draggable={false}
+                  className="max-h-[80vh] w-full object-contain drop-shadow-2xl transition-transform duration-150 ease-out"
+                  style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
                 />
               </div>
               <div className="lg:w-1/4 p-10 flex flex-col justify-center border-l border-white/5">
@@ -165,6 +287,9 @@ const ImageModal = ({ isOpen, onClose, image, title, caption }: {
                 </div>
                 <h3 className="text-3xl font-black mb-6 italic tracking-tight">{title}</h3>
                 <p className="text-brand-muted text-lg leading-relaxed">{caption}</p>
+                <p className="text-brand-muted/60 text-xs mt-6 uppercase tracking-widest font-bold">
+                  Scroll or use +/− to zoom · Drag to pan · Double-click to reset
+                </p>
               </div>
             </div>
           </motion.div>
