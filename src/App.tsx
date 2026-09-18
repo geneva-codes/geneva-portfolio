@@ -393,7 +393,7 @@ export default function App() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 ml-8">
             <NavLink href="#home" active={activeSection === 'home'}>Home</NavLink>
             <NavLink href="#ghl-projects" active={activeSection === 'ghl-projects'}>GoHighLevel Systems</NavLink>
             <NavLink href="#voice-ai" active={activeSection === 'voice-ai'}>Voice AI Agents</NavLink>
