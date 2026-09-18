@@ -415,7 +415,7 @@ export default function App() {
       <main className="relative z-10 pt-32 pb-20">
         {/* Hero Section */}
         <section id="home" className="container mx-auto px-6 py-20 min-h-[90vh] flex items-center">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-5xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -447,51 +447,6 @@ export default function App() {
               </div>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative"
-            >
-              <div className="glass p-8 rounded-[40px] shadow-2xl relative overflow-hidden group">
-                <div className="flex gap-2 mb-6">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                </div>
-                <div className="font-mono text-sm space-y-4 text-brand-primary/90">
-                  <p className="text-white whitespace-pre font-bold">// Enterprise Architecture Blueprint</p>
-                  <p>const workflow = new n8n.Workflow(&apos;automation-engine&apos;);</p>
-                  <p className="pl-4">workflow.on(&apos;incoming_webhook&apos;, async (data) =&gt; &#123;</p>
-                  <p className="pl-8 text-brand-secondary">const sentiment = await OpenAI.analyze(data.lead);</p>
-                  <p className="pl-8 text-brand-accent">if (sentiment.score &gt; 0.8) &#123;</p>
-                  <p className="pl-12">await CRM.route(&apos;HOT_LEAD&apos;, data);</p>
-                  <p className="pl-12">await Slack.alert(&apos;New High-Intent Opportunity!&apos;);</p>
-                  <p className="pl-8">&#125; else &#123;</p>
-                  <p className="pl-12">await EmailNurture.start(data.lead);</p>
-                  <p className="pl-8">&#125;</p>
-                  <p className="pl-4">&#125;);</p>
-                  <p className="text-brand-muted pl-4">// Logic-driven efficiency verified.</p>
-                </div>
-                <div className="mt-8 flex gap-4">
-                  <div className="flex-1 glass p-4 rounded-2xl">
-                    <p className="text-[10px] uppercase font-black text-brand-muted mb-1">Reliability-Focused Architecture</p>
-                    <p className="text-2xl font-black">Designed</p>
-                  </div>
-                  <div className="flex-1 glass p-4 rounded-2xl bg-brand-primary/10">
-                    <p className="text-[10px] uppercase font-black text-brand-primary mb-1">Data Integrity Controls</p>
-                    <p className="text-2xl font-black">Validated</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating badges */}
-              <div className="absolute -top-6 -right-6 glass p-4 rounded-2xl shadow-xl animate-bounce">
-                <Cpu className="text-brand-primary w-8 h-8" />
-              </div>
-              <div className="absolute -bottom-6 -left-6 glass p-4 rounded-2xl shadow-xl animate-pulse">
-                <Database className="text-brand-secondary w-8 h-8" />
-              </div>
             </motion.div>
           </div>
         </section>
@@ -1362,4 +1317,3 @@ export default function App() {
     </div>
   );
 }
-
