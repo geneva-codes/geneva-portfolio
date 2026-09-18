@@ -453,23 +453,23 @@ export default function App() {
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">Open for Collaboration</span>
               </div>
-              <h1 className="text-6xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter">
+              <h1 className="text-5xl md:text-7xl font-black mb-7 leading-[0.92] tracking-tighter">
                 GENEVA <br />
                 <span className="gradient-text">BAGONA</span>
               </h1>
-              <p className="text-2xl md:text-3xl font-bold mb-8 text-white italic">
+              <p className="text-xl md:text-2xl font-bold mb-7 text-white italic">
                 AI Automation & Systems Integration Specialist
               </p>
-              <p className="text-brand-muted text-lg leading-relaxed max-w-4xl mb-10">
+              <p className="text-brand-muted text-base md:text-lg leading-relaxed max-w-3xl mb-9">
                 Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span> and <span className="text-white font-bold">GoHighLevel</span>. 
                 I bridge the gap between complex API integrations and practical business operations by designing reliable, logic-driven automation systems.
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <a href="#projects" className="bg-white text-brand-bg px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-2xl">
+                <a href="#projects" className="bg-white text-brand-bg px-7 py-3.5 rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-2xl">
                   Strategic Projects <Layers className="w-5 h-5" />
                 </a>
-                <a href="#contact" className="glass px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-white/10 transition-colors">
+                <a href="#contact" className="glass px-7 py-3.5 rounded-2xl font-bold flex items-center gap-2 hover:bg-white/10 transition-colors">
                   Contact Specialist <MessageSquare className="w-5 h-5" />
                 </a>
               </div>
