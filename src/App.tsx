@@ -51,11 +51,15 @@ const ParticleBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     let particles: { x: number; y: number; r: number; dx: number; dy: number }[] = [];
-    const count = 100;
+
+    // Slightly fewer particles, but larger and more visible.
+    // Keeps the background elegant instead of visually busy.
+    const count = 90;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -64,38 +68,51 @@ const ParticleBackground = () => {
 
     const create = () => {
       particles = [];
+
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          r: Math.random() * 2 + 0.5,
-          dx: (Math.random() - 0.5) * 0.4,
-          dy: (Math.random() - 0.5) * 0.4,
+
+          // Slightly larger particles for better visibility
+          r: Math.random() * 2.2 + 0.8,
+
+          // Slower movement keeps the effect professional
+          dx: (Math.random() - 0.5) * 0.3,
+          dy: (Math.random() - 0.5) * 0.3,
         });
       }
     };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(110, 231, 255, 0.3)';
-      
+
+      // Subtle cyan glow
+      ctx.fillStyle = 'rgba(110, 231, 255, 0.38)';
+
       particles.forEach((p, i) => {
         p.x += p.dx;
         p.y += p.dy;
-        
+
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-        
+
+        // Particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
-        
+
+        // Network connections
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(139, 92, 246, ${0.12 - dist / 1000})`;
-            ctx.lineWidth = 1;
+
+          if (dist < 140) {
+            const opacity = Math.max(0, 0.12 - dist / 1200);
+
+            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
+            ctx.lineWidth = 0.8;
+
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
@@ -103,17 +120,27 @@ const ParticleBackground = () => {
           }
         }
       });
+
       requestAnimationFrame(animate);
     };
 
     resize();
     create();
     animate();
-    window.addEventListener('resize', () => { resize(); create(); });
-    return () => window.removeEventListener('resize', resize);
+
+    window.addEventListener('resize', resize);
+
+    return () => {
+      window.removeEventListener('resize', resize);
+    };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none z-0"
+    />
+  );
 };
 
 // --- Modal Component ---
