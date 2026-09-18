@@ -415,7 +415,7 @@ export default function App() {
       <main className="relative z-10 pt-32 pb-20">
         {/* Hero Section */}
         <section id="home" className="container mx-auto px-6 py-20 min-h-[90vh] flex items-center">
-          <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -447,7 +447,6 @@ export default function App() {
               </div>
             </motion.div>
 
-            </motion.div>
           </div>
         </section>
 
