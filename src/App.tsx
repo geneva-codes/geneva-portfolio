@@ -415,11 +415,12 @@ export default function App() {
       <main className="relative z-10 pt-32 pb-20">
         {/* Hero Section */}
         <section id="home" className="container mx-auto px-6 py-20 min-h-[90vh] flex items-center">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="w-full max-w-6xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
+              className="w-full"
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-brand-primary/20 mb-8">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -432,7 +433,7 @@ export default function App() {
               <p className="text-2xl md:text-3xl font-bold mb-8 text-white italic">
                 AI Automation & Systems Integration Specialist
               </p>
-              <p className="text-brand-muted text-lg leading-relaxed max-w-xl mb-10">
+              <p className="text-brand-muted text-lg leading-relaxed max-w-4xl mb-10">
                 Innovative and solutions-driven specialist building resilient, AI-powered automation architectures using <span className="text-white font-bold">n8n</span> and <span className="text-white font-bold">GoHighLevel</span>. 
                 I bridge the gap between complex API integrations and practical business operations by designing reliable, logic-driven automation systems.
               </p>
@@ -1316,3 +1317,4 @@ export default function App() {
     </div>
   );
 }
+
