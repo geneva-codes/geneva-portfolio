@@ -78,9 +78,8 @@ These two builds demonstrate hands-on experience with both **external Voice AI o
 - GPT-4.1 (GoHighLevel Native Voice AI)
 
 **Software Development:**
-- C++ (Systems Logic, File Handling)
-- TypeScript / JavaScript
-- React / HTML / CSS
+- C++ Fundamentals (Systems Logic, File Handling)
+
 
 ---
 
